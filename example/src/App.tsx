@@ -1,31 +1,23 @@
 import * as React from 'react';
+import {
+  DetailsPage,
+  DetailsPageScreenName,
+} from 'react-native-remotearth';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './HomeScreen';
+import { NavigationContainer } from '@react-navigation/native';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-remotearth';
+const Stack = createStackNavigator();
+const navigationContainerRef = React.createRef();
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
-
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
+    // @ts-ignore
+    <NavigationContainer ref={navigationContainerRef}>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name={DetailsPageScreenName} component={DetailsPage} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-});
