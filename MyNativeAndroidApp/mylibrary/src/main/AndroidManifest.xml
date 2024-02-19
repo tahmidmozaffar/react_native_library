@@ -5,5 +5,7 @@
     android:name=".MyApp"
     android:usesCleartextTraffic="true">
     <activity android:name=".DetailsActivity" />
+    <activity android:name=".HelloActivity" />
+    <activity android:name=".HelloActivityNew" />
   </application>
 </manifest>

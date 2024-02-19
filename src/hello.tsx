@@ -1,10 +1,13 @@
 import React from 'react';
 import { AppRegistry, View, Text } from 'react-native';
+import { format } from 'date-fns';
 
-export const HelloPage = () => {
+// @ts-ignore
+export const HelloPage = ({ name }) => {
   return (
     <View>
-      <Text>Hello world</Text>
+      <Text>Hello {name}</Text>
+      <Text>{format(new Date(), "'Today is a' eeee")}</Text>
     </View>
   );
 };
