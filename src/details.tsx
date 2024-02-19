@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { AppRegistry, View, Text } from 'react-native';
 
 export const DetailsPageScreenName = 'DetailsPage';
 // @ts-ignore
@@ -12,3 +12,5 @@ export const DetailsPage = ({ route }) => {
     </View>
   );
 };
+
+AppRegistry.registerComponent("DetailsPage", () => DetailsPage);
