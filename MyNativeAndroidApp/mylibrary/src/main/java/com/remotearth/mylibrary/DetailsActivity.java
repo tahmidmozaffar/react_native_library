@@ -5,11 +5,9 @@ import android.os.Bundle;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactRootView;
-import com.facebook.react.common.LifecycleState;
-import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 
-public class DetailsActivity extends ReactActivity {
+public class DetailsActivity extends BaseReactActivity {
   private ReactRootView mReactRootView;
   private ReactInstanceManager mReactInstanceManager;
 
@@ -24,22 +22,22 @@ public class DetailsActivity extends ReactActivity {
     // packages.add(new MyReactNativePackage());
     // Remember to include them in `settings.gradle` and `app/build.gradle` too.
 
-    mReactInstanceManager = ReactInstanceManager.builder()
-      .setApplication(getApplication())
-      .setCurrentActivity(this)
-      .setBundleAssetName("index.android.bundle")
-      .setJSMainModulePath("index")
-      .addPackage(new MainReactPackage())
-//      .addPackages(packages)
-      .setUseDeveloperSupport(BuildConfig.DEBUG)
-      .setInitialLifecycleState(LifecycleState.RESUMED)
-      .build();
+    mReactInstanceManager = ReactInstanceManagerProvider.getReactInstanceManager(getApplication(),this);
     // The string here (e.g. "IntegratedApp") has to match
     // the string in AppRegistry.registerComponent() in index.js
-    mReactRootView.startReactApplication(mReactInstanceManager, "DetailsPage", null);
+
+    mReactRootView.startReactApplication(mReactInstanceManager, "DetailsPage", getIntent().getBundleExtra("bundle"));
 
     setContentView(mReactRootView);
   }
 
+  @Override
+  public ReactInstanceManager getInstanceManager() {
+    return mReactInstanceManager;
+  }
 
+  @Override
+  public ReactRootView getRootView() {
+    return mReactRootView;
+  }
 }

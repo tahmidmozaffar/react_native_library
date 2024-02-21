@@ -1,13 +1,15 @@
 import { type NavigationProp } from '@react-navigation/native';
 import React, { type FC } from 'react';
-import { StyleSheet } from 'react-native';
+import { AppRegistry, StyleSheet, NativeModules } from 'react-native';
 import { FlatList } from 'react-native';
 import { StatusBar } from 'react-native';
 import { Text } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 import { DetailsPageScreenName } from './details';
 
-type ItemData = {
+const { Remotearth } = NativeModules;
+
+export type ItemData = {
   id: string;
   title: string;
 };
@@ -33,15 +35,27 @@ export const Item = ({
   </TouchableOpacity>
 );
 
-type Props = {
+export type Props = {
+  isFromNativeApp: boolean;
   navigation: NavigationProp<ReactNavigation.RootParamList>;
-  data: ItemData[];
+  data: ItemData[] | string;
 };
 
 // 3rd party app will add this listview to there app.
-export const CustomListView: FC<Props> = ({ navigation, data }) => {
+export const CustomListView: FC<Props> = ({
+  isFromNativeApp,
+  navigation,
+  data,
+}) => {
   // @ts-ignore
   const [selectedId, setSelectedId] = React.useState<string>();
+  console.log('data', data);
+  console.log(typeof data);
+  if (isFromNativeApp) {
+    console.log('isFromNativeApp', isFromNativeApp);
+    data = JSON.parse(data as string);
+  }
+  // const
 
   const renderItem = ({ item }: { item: ItemData }) => {
     const backgroundColor = item.id === selectedId ? '#6e3b6e' : '#f9c2ff';
@@ -51,10 +65,16 @@ export const CustomListView: FC<Props> = ({ navigation, data }) => {
       <Item
         item={item}
         onPress={() => {
-          // @ts-ignore
-          navigation.navigate(DetailsPageScreenName, {
-            item,
-          });
+          if (!isFromNativeApp) {
+            // @ts-ignore
+            navigation.navigate(DetailsPageScreenName, {
+              isFromNativeApp:false,
+              item,
+            });
+          } else {
+            //call rn bridge method to navigate to Details page
+            Remotearth.openDetailsPage(item);
+          }
         }}
         backgroundColor={backgroundColor}
         textColor={color}
@@ -85,3 +105,5 @@ const styles = StyleSheet.create({
     fontSize: 32,
   },
 });
+
+AppRegistry.registerComponent('CustomListView', () => CustomListView);

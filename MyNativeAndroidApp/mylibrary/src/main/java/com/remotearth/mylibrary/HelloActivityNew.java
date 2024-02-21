@@ -1,18 +1,14 @@
 package com.remotearth.mylibrary;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-import com.facebook.hermes.reactexecutor.HermesExecutorFactory;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactRootView;
-import com.facebook.react.common.LifecycleState;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
-import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 
-public class HelloActivityNew extends ReactActivity implements DefaultHardwareBackBtnHandler {
+public class HelloActivityNew extends BaseReactActivity {
   private ReactRootView mReactRootView;
   private ReactInstanceManager mReactInstanceManager;
 
@@ -27,19 +23,8 @@ public class HelloActivityNew extends ReactActivity implements DefaultHardwareBa
     // packages.add(new MyReactNativePackage());
     // Remember to include them in `settings.gradle` and `app/build.gradle` too.
 
-    if (mReactInstanceManager == null) {
-      mReactInstanceManager = ReactInstanceManager.builder()
-        .setApplication(getApplication())
-        .setCurrentActivity(this)
-        .setBundleAssetName("index.android.bundle")
-        .setJSMainModulePath("index")
-        .addPackage(new MainReactPackage())
-        .setJavaScriptExecutorFactory(new HermesExecutorFactory())
-//      .addPackages(packages)
-        .setUseDeveloperSupport(BuildConfig.DEBUG)
-        .setInitialLifecycleState(LifecycleState.RESUMED)
-        .build();
-    }
+
+      mReactInstanceManager = ReactInstanceManagerProvider.getReactInstanceManager(getApplication(),this);
 
     // The string here (e.g. "IntegratedApp") has to match
     // the string in AppRegistry.registerComponent() in index.js
@@ -48,4 +33,13 @@ public class HelloActivityNew extends ReactActivity implements DefaultHardwareBa
     setContentView(mReactRootView);
   }
 
+  @Override
+  public ReactInstanceManager getInstanceManager() {
+    return mReactInstanceManager;
+  }
+
+  @Override
+  public ReactRootView getRootView() {
+    return mReactRootView;
+  }
 }

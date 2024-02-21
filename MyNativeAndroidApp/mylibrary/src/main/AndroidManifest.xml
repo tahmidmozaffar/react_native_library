@@ -7,5 +7,6 @@
     <activity android:name=".DetailsActivity" />
     <activity android:name=".HelloActivity" />
     <activity android:name=".HelloActivityNew" />
+    <activity android:name=".CustomListViewActivity" />
   </application>
 </manifest>

@@ -7,6 +7,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyApp extends Application implements ReactApplication {
@@ -22,9 +23,10 @@ public class MyApp extends Application implements ReactApplication {
       protected List<ReactPackage> getPackages() {
 //        @SuppressWarnings("UnnecessaryLocalVariable")
 //        List<ReactPackage> packages = new PackageList(this).getPackages();
+        List<ReactPackage> packages = new ArrayList<>();
         // Packages that cannot be autolinked yet can be added manually here, for example:
-        // packages.add(new MyReactNativePackage());
-        return null;
+        packages.add(new RemotearthPackage());
+        return packages;
       }
 
       @Override
@@ -46,7 +48,7 @@ public class MyApp extends Application implements ReactApplication {
 //    if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
 //      return mNewArchitectureNativeHost;
 //    } else {
-      return mReactNativeHost;
+    return mReactNativeHost;
 //    }
   }
 

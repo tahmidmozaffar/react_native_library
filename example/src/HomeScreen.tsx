@@ -5,11 +5,12 @@ import { CustomListView } from 'react-native-remotearth';
 
 export default function HomeScreen() {
   const navigation = useNavigation();
-  
+
   return (
     <View style={styles.container}>
       <Text>Hello world</Text>
       <CustomListView
+        isFromNativeApp={false}
         navigation={navigation}
         data={[
           { id: '1', title: 'Test 1' },
