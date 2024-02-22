@@ -1,8 +1,5 @@
 import * as React from 'react';
-import {
-  DetailsPage,
-  DetailsPageScreenName,
-} from 'react-native-remotearth';
+import { DetailsPage, DetailsPageScreenName } from 'react-native-remotearth';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './HomeScreen';
 import { NavigationContainer } from '@react-navigation/native';
@@ -16,7 +13,11 @@ export default function App() {
     <NavigationContainer ref={navigationContainerRef}>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name={DetailsPageScreenName} component={DetailsPage} />
+        <Stack.Screen
+          name={DetailsPageScreenName}
+          component={DetailsPage}
+          // initialParams={{ isFromNativeApp: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
