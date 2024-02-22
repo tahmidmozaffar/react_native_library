@@ -10217,19 +10217,34 @@ __metadata:
   languageName: node
   linkType: hard
 
-"multiplication@npm:^0.0.1":
-  version: 0.0.1
-  resolution: "multiplication@npm:0.0.1"
-  checksum: 093e1864b15a3c750ad96822d84529b8c637402c18795cd80add044533e4bf2bdc2f02f5dc93057e04a39d8beb95b84ab55149de1c4485b71cda2e5b7c7b8226
-  languageName: node
-  linkType: hard
-
 "mute-stream@npm:1.0.0":
   version: 1.0.0
   resolution: "mute-stream@npm:1.0.0"
   checksum: 36fc968b0e9c9c63029d4f9dc63911950a3bdf55c9a87f58d3a266289b67180201cade911e7699f8b2fa596b34c9db43dad37649e3f7fdd13c3bb9edb0017ee7
   languageName: node
   linkType: hard
+
+"myreactnativeapp@workspace:myreactnativeapp":
+  version: 0.0.0-use.local
+  resolution: "myreactnativeapp@workspace:myreactnativeapp"
+  dependencies:
+    "@babel/core": ^7.20.0
+    "@babel/preset-env": ^7.20.0
+    "@babel/runtime": ^7.20.0
+    "@react-native/babel-preset": 0.73.21
+    "@react-native/metro-config": 0.73.5
+    "@react-native/typescript-config": 0.73.1
+    "@react-navigation/native": ^6.1.10
+    "@react-navigation/native-stack": ^6.9.18
+    "@react-navigation/stack": ^6.3.21
+    babel-plugin-module-resolver: ^5.0.0
+    react: 18.2.0
+    react-native: 0.73.4
+    react-native-gesture-handler: ^2.15.0
+    react-native-safe-area-context: ^4.9.0
+    react-native-screens: ^3.29.0
+  languageName: unknown
+  linkType: soft
 
 "nanoid@npm:^3.1.23":
   version: 3.3.7
@@ -11387,28 +11402,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-remotearth-example@workspace:example":
-  version: 0.0.0-use.local
-  resolution: "react-native-remotearth-example@workspace:example"
-  dependencies:
-    "@babel/core": ^7.20.0
-    "@babel/preset-env": ^7.20.0
-    "@babel/runtime": ^7.20.0
-    "@react-native/babel-preset": 0.73.21
-    "@react-native/metro-config": 0.73.5
-    "@react-native/typescript-config": 0.73.1
-    "@react-navigation/native": ^6.1.10
-    "@react-navigation/native-stack": ^6.9.18
-    "@react-navigation/stack": ^6.3.21
-    babel-plugin-module-resolver: ^5.0.0
-    react: 18.2.0
-    react-native: 0.73.4
-    react-native-gesture-handler: ^2.15.0
-    react-native-safe-area-context: ^4.9.0
-    react-native-screens: ^3.29.0
-  languageName: unknown
-  linkType: soft
-
 "react-native-remotearth@workspace:.":
   version: 0.0.0-use.local
   resolution: "react-native-remotearth@workspace:."
@@ -11430,7 +11423,6 @@ __metadata:
     eslint-config-prettier: ^9.0.0
     eslint-plugin-prettier: ^5.0.1
     jest: ^29.7.0
-    multiplication: ^0.0.1
     prettier: ^3.0.3
     react: 18.2.0
     react-native: 0.73.4

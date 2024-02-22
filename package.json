@@ -26,11 +26,11 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace react-native-remotearth-example",
+    "myreactnativeapp": "yarn workspace myreactnativeapp",
     "test": "jest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
+    "clean": "del-cli android/build myreactnativeapp/android/build myreactnativeapp/android/app/build myreactnativeapp/ios/build lib",
     "prepare": "bob build",
     "release": "release-it"
   },
@@ -88,13 +88,13 @@
     "react-native": "*"
   },
   "workspaces": [
-    "example"
+    "myreactnativeapp"
   ],
   "packageManager": "yarn@3.6.1",
   "jest": {
     "preset": "react-native",
     "modulePathIgnorePatterns": [
-      "<rootDir>/example/node_modules",
+      "<rootDir>/myreactnativeapp/node_modules",
       "<rootDir>/lib/"
     ]
   },
