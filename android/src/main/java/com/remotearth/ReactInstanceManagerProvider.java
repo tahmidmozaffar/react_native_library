@@ -1,4 +1,4 @@
-package com.remotearth.mylibrary;
+package com.remotearth;
 
 import android.app.Activity;
 import android.app.Application;

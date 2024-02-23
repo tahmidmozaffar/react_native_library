@@ -1,4 +1,4 @@
-package com.remotearth.mylibrary;
+package com.remotearth;
 
 public class Route {
   public Params params;

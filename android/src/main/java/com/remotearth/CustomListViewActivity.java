@@ -1,4 +1,4 @@
-package com.remotearth.mylibrary;
+package com.remotearth;
 
 import android.os.Bundle;
 import android.os.Parcelable;

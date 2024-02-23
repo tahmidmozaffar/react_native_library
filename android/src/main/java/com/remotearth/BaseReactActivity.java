@@ -1,4 +1,4 @@
-package com.remotearth.mylibrary;
+package com.remotearth;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactInstanceManager;
